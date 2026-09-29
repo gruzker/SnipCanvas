@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <title>SnipCanvas</title>
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8F7FFF"/><stop offset="0.5" stop-color="#5F50F0"/><stop offset="1" stop-color="#3A2FC2"/></linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0.27"/><stop offset="0.5" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect x="10" y="10" width="236" height="236" rx="58" fill="url(#tile)"/>
+  <rect x="10" y="10" width="236" height="236" rx="58" fill="url(#sheen)"/>
+  <g fill="none" stroke="#D9D4FF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><path d="M48,92 L48,56 L84,56"/><path d="M172,56 L208,56 L208,92"/><path d="M48,164 L48,200 L84,200"/><path d="M172,200 L208,200 L208,164"/></g>
+  <g transform="rotate(-5.5 128 128)">
+    <rect x="70" y="78" width="116" height="116" rx="24" fill="#1A1170" fill-opacity="0.27"/>
+    <rect x="70" y="70" width="116" height="116" rx="24" fill="#fff"/>
+    <path d="M94,166 C102,128 128,108 162,104 M136,86 L162,104 L142,130" fill="none" stroke="#FF5B2E" stroke-width="21" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

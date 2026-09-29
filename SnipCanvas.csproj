@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AssemblyName>SnipCanvas</AssemblyName>
+    <Product>SnipCanvas</Product>
+    <Title>SnipCanvas</Title>
+    <Description>A simple screenshot capture and editing app for Windows.</Description>
+    <Version>1.0.0</Version>
+    <Authors>SnipCanvas contributors</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <EnableDiagnostics Condition="'$(EnableDiagnostics)' == ''">false</EnableDiagnostics>
+    <ApplicationIcon>assets/snipcanvas.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(EnableDiagnostics)' == 'true'">
+    <DefineConstants>$(DefineConstants);SNIPCANVAS_DIAGNOSTICS</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(EnableDiagnostics)' != 'true'">
+    <Compile Remove="tests/**/*.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <FrameworkReference Update="Microsoft.NETCore.App;Microsoft.WindowsDesktop.App" RuntimeFrameworkVersion="8.0.31" />
+    <Resource Include="assets/snipcanvas.ico" />
+    <Resource Include="assets/snipcanvas.png" />
+    <Content Include="LICENSE;THIRD-PARTY-NOTICES.md;licenses/*.txt" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+  </ItemGroup>
+</Project>

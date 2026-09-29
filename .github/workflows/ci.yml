@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6
+        with:
+          dotnet-version: '8.0.x'
+      - name: Build and smoke check
+        shell: pwsh
+        run: ./check.ps1 -Checks self-test
+      - name: Verify shipping build
+        shell: pwsh
+        run: |
+          dotnet publish SnipCanvas.csproj -c Release -r win-x64 --self-contained true -p:EnableDiagnostics=false -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:DebugType=None -p:DebugSymbols=false -o dist
+          if ($LASTEXITCODE -ne 0) { throw 'Shipping build failed.' }
+          foreach ($file in @('SnipCanvas.exe', 'LICENSE', 'THIRD-PARTY-NOTICES.md', 'licenses/dotnet-LICENSE.txt', 'licenses/dotnet-THIRD-PARTY-NOTICES.txt')) {
+            if (!(Test-Path -LiteralPath (Join-Path dist $file))) { throw "Missing release file: $file" }
+          }
