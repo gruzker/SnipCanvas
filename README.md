@@ -14,7 +14,7 @@ On Windows, install the [.NET 8 SDK](https://dotnet.microsoft.com/download/dotne
 dotnet run -c Release
 ```
 
-For packaged downloads, use the repository's Releases page once a release is published. Choose `SnipCanvas-Setup.exe` to install, or extract `SnipCanvas-Windows-x64.zip` for portable use. Build artifacts are not committed to this repository. See [QUICKSTART.md](QUICKSTART.md) for the user guide and [CONTRIBUTING.md](CONTRIBUTING.md) to contribute.
+For packaged downloads, use [SnipCanvas v1.0.0](https://github.com/gruzker/SnipCanvas/releases/tag/v1.0.0). Choose [`SnipCanvas-Setup.exe`](https://github.com/gruzker/SnipCanvas/releases/download/v1.0.0/SnipCanvas-Setup.exe) to install, or extract [`SnipCanvas-Windows-x64.zip`](https://github.com/gruzker/SnipCanvas/releases/download/v1.0.0/SnipCanvas-Windows-x64.zip) for portable use. Build artifacts are not committed to this repository. See [QUICKSTART.md](QUICKSTART.md) for the user guide and [CONTRIBUTING.md](CONTRIBUTING.md) to contribute.
 
 New installations save to **Pictures\SnipCanvas**. No screenshots, preferences, or personal data are included in the source or release packages.
 
